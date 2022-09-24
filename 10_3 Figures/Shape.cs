@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace _10_3_Figures
 {
@@ -15,11 +16,8 @@ namespace _10_3_Figures
         {
             // fill up?
         }
-        public Shape(int x, int y)
-        {
-            // fill up?
-        }
-        abstract public bool IsInside();
-        abstract public void Draw();
+
+        abstract public bool IsInside(int x, int y);
+        abstract public void Draw(Graphics g);
     }
 }
