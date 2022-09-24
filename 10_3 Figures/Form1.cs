@@ -19,7 +19,7 @@ namespace _10_3_Figures
             InitializeComponent();
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        private void Form1_MouseDown(object sender, MouseEventArgs e) //adding to movelist
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -30,12 +30,60 @@ namespace _10_3_Figures
                         movingShapes.Add(el);
                     }
                 }
-            }     
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                if(shapes.Count > 0)
+                {
+                    shapes.RemoveAt(shapes.Count - 1);
+                }
+            }
+            Refresh();
+        }
+        private void Form1_MouseMove(object sender, MouseEventArgs e) //DOESNT WORK!
+        {
+            foreach(Shape el in movingShapes)
+            {
+                el.newCoords(e.X, e.Y);
+            }
+            Refresh();
+        }
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            bool flag = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                foreach (Shape el in shapes)
+                {
+                    if (el.IsInside(e.X, e.Y))
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    shapes.Add(new Circle(e.X, e.Y));
+                }
+            }
+            Refresh();
+            flag = true;
+            movingShapes.Clear();
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = CreateGraphics();
+            foreach (Shape el in shapes)
+            {
+                el.Draw(g);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }

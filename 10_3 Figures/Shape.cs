@@ -16,8 +16,8 @@ namespace _10_3_Figures
         {
             // fill up?
         }
-
         abstract public bool IsInside(int x, int y);
         abstract public void Draw(Graphics g);
+        abstract public void newCoords(int x, int y);
     }
 }
