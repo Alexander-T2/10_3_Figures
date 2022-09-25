@@ -45,7 +45,7 @@ namespace _10_3_Figures
             }
             Refresh();
         }
-        private void Form1_MouseMove(object sender, MouseEventArgs e) //DOESNT WORK!
+        private void Form1_MouseMove(object sender, MouseEventArgs e) 
         {
             foreach(Shape el in movingShapes)
             {

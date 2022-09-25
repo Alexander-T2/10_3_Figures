@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="figures\Circle.cs" />
     <Compile Include="figures\Square.cs" />
+    <Compile Include="figures\Triangle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
