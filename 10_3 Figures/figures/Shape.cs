@@ -9,7 +9,7 @@ namespace _10_3_Figures
 {
     abstract class Shape
     {
-        protected static int R = 15;
+        protected static int R = 30;
         protected int x, y;
         protected static string drawingColor;
         static Shape()

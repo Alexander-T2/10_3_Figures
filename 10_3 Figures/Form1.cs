@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _10_3_Figures.figures;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
