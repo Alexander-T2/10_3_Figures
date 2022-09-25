@@ -14,16 +14,6 @@ namespace _10_3_Figures
             this.x = x;
             this.y = y;
         }
-        public int X
-        {
-            get { return x; }
-            set { x = value; }
-        }
-        public int Y
-        {
-            get { return y; }
-            set { y = value; }
-        }
         override public bool IsInside(int mx, int my)
         {
             return Math.Pow(mx - x, 2) + Math.Pow(my - y, 2) < Math.Pow(R, 2);
@@ -36,8 +26,8 @@ namespace _10_3_Figures
         }
         public override void newCoords(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.x += x;
+            this.y += y;
         }
     }
 }

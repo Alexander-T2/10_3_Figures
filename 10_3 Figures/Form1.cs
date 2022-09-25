@@ -14,6 +14,8 @@ namespace _10_3_Figures
     {
         List<Shape> shapes = new List<Shape>();
         List<Shape> movingShapes = new List<Shape>();
+        int dragxst;
+        int dragyst;
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace _10_3_Figures
                     if (el.IsInside(e.X, e.Y))
                     {
                         movingShapes.Add(el);
+                        dragxst = e.X;
+                        dragyst = e.Y;
                     }
                 }
             }
@@ -44,8 +48,10 @@ namespace _10_3_Figures
         {
             foreach(Shape el in movingShapes)
             {
-                el.newCoords(e.X, e.Y);
+                el.newCoords(e.X - dragxst, e.Y - dragyst);
             }
+            dragxst = e.X;
+            dragyst = e.Y;
             Refresh();
         }
         private void Form1_MouseUp(object sender, MouseEventArgs e)
