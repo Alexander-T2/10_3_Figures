@@ -9,10 +9,8 @@ namespace _10_3_Figures
 {
     class Circle : Shape
     {
-        public Circle(int x, int y)
+        public Circle(int x, int y) :base(x, y)
         {
-            this.x = x;
-            this.y = y;
         }
         override public bool IsInside(int mx, int my)
         {

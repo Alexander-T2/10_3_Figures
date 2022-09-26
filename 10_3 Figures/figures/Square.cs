@@ -9,10 +9,8 @@ namespace _10_3_Figures.figures
 {
     class Square: Shape
     {
-        public Square(int x, int y)
+        public Square(int x, int y) :base(x, y)
         {
-            this.x = x;
-            this.y = y;
         }
         override public bool IsInside(int mx, int my)
         {

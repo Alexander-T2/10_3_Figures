@@ -9,14 +9,18 @@ namespace _10_3_Figures
 {
     abstract class Shape
     {
-        protected static int R = 60;
+        protected static int R;
         protected int x, y;
-        protected static string drawingColor;
+        protected static Color drawingColor;
         static Shape()
         {
-            // fill up?
+            R = 60;
         }
-
+        public Shape(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
         abstract public bool IsInside(int x, int y);
         abstract public void Draw(Graphics g);
         abstract public void newCoords(int x, int y);

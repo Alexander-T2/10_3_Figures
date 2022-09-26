@@ -9,10 +9,8 @@ namespace _10_3_Figures.figures
 {
     class Triangle: Shape
     {
-        public Triangle(int x, int y)
+        public Triangle(int x, int y) :base(x, y)
         {
-            this.x = x;
-            this.y = y;
         }
         override public bool IsInside(int mx, int my) //TODO
         {
