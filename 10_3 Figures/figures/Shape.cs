@@ -10,6 +10,7 @@ namespace _10_3_Figures
     abstract class Shape
     {
         protected static int R;
+        protected bool isdragged;
         protected int x, y;
         protected static Color drawingColor;
         static Shape()
@@ -20,6 +21,12 @@ namespace _10_3_Figures
         {
             this.x = x;
             this.y = y;
+            isdragged = false;
+        }
+        public bool Isdragged
+        {
+            set { isdragged = value; }
+            get { return isdragged; }
         }
         abstract public bool IsInside(int x, int y);
         abstract public void Draw(Graphics g);

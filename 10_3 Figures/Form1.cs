@@ -14,7 +14,6 @@ namespace _10_3_Figures
     public partial class Form1 : Form
     {
         List<Shape> shapes = new List<Shape>();
-        List<Shape> movingShapes = new List<Shape>();
         int dragxst;
         int dragyst;
         public Form1()
@@ -30,7 +29,7 @@ namespace _10_3_Figures
                 {
                     if (el.IsInside(e.X, e.Y))
                     {
-                        movingShapes.Add(el);
+                        el.Isdragged = true;
                         dragxst = e.X;
                         dragyst = e.Y;
                     }
@@ -47,9 +46,12 @@ namespace _10_3_Figures
         }
         private void Form1_MouseMove(object sender, MouseEventArgs e) 
         {
-            foreach(Shape el in movingShapes)
+            foreach(Shape el in shapes)
             {
-                el.newCoords(e.X - dragxst, e.Y - dragyst);
+                if (el.Isdragged)
+                {
+                   el.newCoords(e.X - dragxst, e.Y - dragyst);
+                }
             }
             dragxst = e.X;
             dragyst = e.Y;
@@ -74,7 +76,10 @@ namespace _10_3_Figures
             }
             Refresh();
             flag = true;
-            movingShapes.Clear();
+            foreach (Shape el in shapes)
+            {
+                el.Isdragged = false;
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
