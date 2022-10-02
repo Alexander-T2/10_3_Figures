@@ -19,9 +19,10 @@ namespace _10_3_Figures
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e) //adding to movelist
+        private void Form1_MouseDown(object sender, MouseEventArgs e) 
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -71,7 +72,7 @@ namespace _10_3_Figures
                 }
                 if (flag)
                 {
-                    shapes.Add(new Circle(e.X, e.Y));
+                    shapes.Add(new Triangle(e.X, e.Y));
                 }
             }
             Refresh();
@@ -84,7 +85,7 @@ namespace _10_3_Figures
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = CreateGraphics();
+            Graphics g = e.Graphics;
             foreach (Shape el in shapes)
             {
                 el.Draw(g);

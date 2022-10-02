@@ -15,7 +15,7 @@ namespace _10_3_Figures
         protected static Color drawingColor;
         static Shape()
         {
-            R = 60;
+            R = 30;
         }
         public Shape(int x, int y)
         {
