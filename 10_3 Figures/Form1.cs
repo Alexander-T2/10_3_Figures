@@ -16,6 +16,7 @@ namespace _10_3_Figures
         List<Shape> shapes = new List<Shape>();
         int dragxst;
         int dragyst;
+        int currentShape = 1;
         public Form1()
         {
             InitializeComponent();
@@ -72,7 +73,18 @@ namespace _10_3_Figures
                 }
                 if (flag)
                 {
-                    shapes.Add(new Triangle(e.X, e.Y));
+                    switch (currentShape)
+                    {
+                        case 1:
+                            shapes.Add(new Circle(e.X, e.Y));
+                            break;
+                        case 2:
+                            shapes.Add(new Square(e.X, e.Y));
+                            break;
+                        case 3:
+                            shapes.Add(new Triangle(e.X, e.Y));
+                            break;
+                    }
                 }
             }
             Refresh();
@@ -97,6 +109,28 @@ namespace _10_3_Figures
 
         }
 
-        
+        private void circleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentShape = 1;
+            circleToolStripMenuItem.Checked = true;
+            squareToolStripMenuItem.Checked = false;
+            triangleToolStripMenuItem.Checked = false;
+        }
+
+        private void squareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentShape = 2;
+            circleToolStripMenuItem.Checked = false;
+            squareToolStripMenuItem.Checked = true;
+            triangleToolStripMenuItem.Checked = false;
+        }
+
+        private void triangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentShape = 3;
+            circleToolStripMenuItem.Checked = false;
+            squareToolStripMenuItem.Checked = false;
+            triangleToolStripMenuItem.Checked = true;
+        }
     }
 }
