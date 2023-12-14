@@ -7,14 +7,19 @@ using System.Drawing;
 
 namespace _10_3_Figures.figures
 {
+    [Serializable]
     class Triangle: Shape
     {
         Point top = new Point();
         Point left = new Point();
         Point right = new Point();
         Point mouse = new Point();
-        public Triangle(int x, int y) :base(x, y)
+        public Triangle(int x, int y) : base(x, y)
         {
+        }
+        public Triangle(int x, int y, int id) : base(x, y)
+        {
+            this.id = id;
         }
         override public bool IsInside(int mx, int my)
         {
@@ -33,7 +38,7 @@ namespace _10_3_Figures.figures
             right.Y = y + Convert.ToInt32(R * 0.5);
             left.X = x + Convert.ToInt32(R * Math.Sqrt(3) / 2);
             left.Y = y + Convert.ToInt32(R * 0.5);
-            Brush b = new SolidBrush(Color.Purple);
+            Brush b = new SolidBrush(drawingColor);
             Pen p = new Pen(b, 3);
             g.DrawLine(p, top, right);
             g.DrawLine(p, right, left);
